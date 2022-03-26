@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">college_admission_prediction</string>
+    <string name="user_name">User Name</string>
+    <string name="user_password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up"><![CDATA[Sign Up >>]]></string>
+</resources>
