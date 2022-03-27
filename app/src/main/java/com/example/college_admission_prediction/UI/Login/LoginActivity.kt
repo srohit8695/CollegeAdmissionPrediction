@@ -18,13 +18,19 @@ class LoginActivity : AppCompatActivity() {
         loginActivityBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginActivityBinding.root)
 
-        loginActivityBinding.login.setOnClickListener {
-            login()
-        }
+        try {
+            title = "Login Screen"
 
-        loginActivityBinding.signup.setOnClickListener {
-            val intent = Intent(this, Registeration::class.java)
-            startActivity(intent)
+            loginActivityBinding.login.setOnClickListener {
+                login()
+            }
+
+            loginActivityBinding.signup.setOnClickListener {
+                val intent = Intent(this, Registeration::class.java)
+                startActivity(intent)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
     }
@@ -32,21 +38,7 @@ class LoginActivity : AppCompatActivity() {
     private fun login(){
         try {
             if(UtilFun.checkForInternet(this)){
-                if (loginActivityBinding.userName.text!!.isNotEmpty()){
-                    if (loginActivityBinding.userName.text!!.contains("@")){
-                        if(loginActivityBinding.password.text!!.isNotEmpty()){
-                            //  API Call
-                        }
-                        else{
-                            UtilFun.showShortToast(this, "Enter password")
-                        }
-                    }
-                    else{
-                        UtilFun.showShortToast(this, "Enter valid email")
-                    }
-                }else{
-                    UtilFun.showShortToast(this, "Enter Email")
-                }
+
             }
             else{
                 UtilFun.showShortToast(this, "Check Internet Connectivity")

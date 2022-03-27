@@ -16,6 +16,9 @@
             android:name=".UI.homeScreen.homeScreen"
             android:exported="false" />
         <activity
+            android:name=".UI.Registration.Registeration"
+            android:exported="false" />
+        <activity
             android:name=".UI.Login.LoginActivity"
             android:exported="false" />
         <activity

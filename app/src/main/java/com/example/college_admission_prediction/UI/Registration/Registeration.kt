@@ -14,11 +14,18 @@ class Registeration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        registrationBinding = ActivityRegisterationBinding.inflate(layoutInflater)
-        setContentView(registrationBinding.root)
+            registrationBinding = ActivityRegisterationBinding.inflate(layoutInflater)
+            setContentView(registrationBinding.root)
 
-        registrationBinding.register.setOnClickListener {
-            register()
+        try {
+
+            title = "Registration"
+
+            registrationBinding.register.setOnClickListener {
+                register()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
     }
