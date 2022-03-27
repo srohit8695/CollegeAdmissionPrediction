@@ -7,6 +7,43 @@
     android:orientation="vertical"
     tools:context=".UI.predictionScreen.PredictionScreen">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:padding="2dp"
+            android:id="@+id/college"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/college_name"
+            android:layout_weight="1"/>
+
+
+        <TextView
+            android:textStyle="bold"
+            android:background="@color/black"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="2dp"
+            android:id="@+id/percentage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/percentage"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/college_predicted"
         android:layout_width="match_parent"

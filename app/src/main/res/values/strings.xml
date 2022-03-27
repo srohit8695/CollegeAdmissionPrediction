@@ -16,4 +16,6 @@
     <string name="cgpa">CGPA</string>
     <string name="research">Research</string>
     <string name="submit">Submit</string>
+    <string name="college_name">College Name</string>
+    <string name="percentage">Percentage (%)</string>
 </resources>

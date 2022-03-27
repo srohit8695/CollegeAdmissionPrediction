@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.college_admission_prediction.Others.UtilFun
 import com.example.college_admission_prediction.R
 import com.example.college_admission_prediction.UI.Registration.Registeration
+import com.example.college_admission_prediction.UI.homeScreen.homeScreen
 import com.example.college_admission_prediction.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -39,10 +40,24 @@ class LoginActivity : AppCompatActivity() {
         try {
             if(UtilFun.checkForInternet(this)){
 
+                if(loginActivityBinding.userName.text.toString() == ("123") && loginActivityBinding.password.text.toString() == ("123")){
+                    moveToHomeScreen()
+                }
+
             }
             else{
                 UtilFun.showShortToast(this, "Check Internet Connectivity")
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun moveToHomeScreen(){
+        try {
+            val intent = Intent(this, homeScreen::class.java)
+            startActivity(intent)
+            finish()
         } catch (e: Exception) {
             e.printStackTrace()
         }

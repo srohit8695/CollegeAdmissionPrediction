@@ -13,13 +13,15 @@ import com.example.college_admission_prediction.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainBinding: ActivityMainBinding
-    private val repository : UserRepository = UserRepository(application)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
+
+        val repository : UserRepository = UserRepository(this)
 
         try {
             val flags = View.SYSTEM_UI_FLAG_LOW_PROFILE or
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.hide()
 
             if (UtilFun.checkForInternet(this)) {
-                if (true) {//repository.getAllDataCount() == 1
+                if (repository.getAllDataCount() == 1) {// for checking os the user is logged in or not
                     val intent = Intent(this, homeScreen::class.java)
                     startActivity(intent)
                     finish()

@@ -24,8 +24,16 @@ class PredictionScreen : AppCompatActivity() {
             title = "Recommend Colleges"
 
             val list: ArrayList<CollegePredicted> = arrayListOf<CollegePredicted>()
-            list.add(CollegePredicted("College A", "46%"))
-
+            list.add(CollegePredicted("Abhilashi University", "46%"))
+            list.add(CollegePredicted("Acharya N.G. Ranga Agricultural University", "98%"))
+            list.add(CollegePredicted("Azim Premji University", "66%"))
+            list.add(CollegePredicted("Indira Gandhi Institute of Development Research", "40%"))
+            list.add(CollegePredicted("College efqefA", "27%"))
+            list.add(CollegePredicted("College Abhilashi", "61%"))
+            list.add(CollegePredicted("Indian Maritime University", "27%"))
+            list.add(CollegePredicted("Kannur University", "61%"))
+            list.add(CollegePredicted("Kaziranga University", "27%"))
+            list.add(CollegePredicted("Maharishi Dayanand University", "61%"))
 
             adapter = CollegeAdapter(list ,this)
             predictionScreenBinding.collegeRecyclerView.adapter = adapter
