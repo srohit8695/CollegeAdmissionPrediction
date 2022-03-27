@@ -45,4 +45,14 @@ class HomeScreenViewModel(application: Application) : AndroidViewModel(applicati
         return false
     }
 
+
+    fun checkCountry(activityHomeScreenBinding : ActivityHomeScreenBinding) : Boolean{
+
+        if(activityHomeScreenBinding.countryName.text!!.isNotEmpty()){
+            return true
+        }
+
+        return false
+    }
+
 }

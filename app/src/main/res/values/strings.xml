@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">college_admission_prediction</string>
+    <string name="app_name">College Admission Prediction</string>
     <string name="user_name">Email / User Name</string>
     <string name="user_password">Password</string>
     <string name="login">Login</string>
