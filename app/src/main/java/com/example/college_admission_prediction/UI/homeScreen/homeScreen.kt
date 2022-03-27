@@ -1,10 +1,12 @@
 package com.example.college_admission_prediction.UI.homeScreen
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.college_admission_prediction.Others.UtilFun
 import com.example.college_admission_prediction.R
+import com.example.college_admission_prediction.UI.predictionScreen.PredictionScreen
 import com.example.college_admission_prediction.databinding.ActivityHomeScreenBinding
 import com.example.college_admission_prediction.databinding.ActivityLoginBinding
 
@@ -26,32 +28,39 @@ class homeScreen : AppCompatActivity() {
         activityHomeScreenBinding = ActivityHomeScreenBinding.inflate(layoutInflater)
         setContentView(activityHomeScreenBinding.root)
 
-        homeScreenViewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
+        try {
+            homeScreenViewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
 
-        activityHomeScreenBinding.searchCountry.setOnClickListener {
+            activityHomeScreenBinding.searchCountry.setOnClickListener {
 
-            if (UtilFun.checkForInternet(this)) {
-                if(homeScreenViewModel.checkCountry(activityHomeScreenBinding)){
-                    //API call
+                if (UtilFun.checkForInternet(this)) {
+                    if(homeScreenViewModel.checkCountry(activityHomeScreenBinding)){
+                        //API call
+                    }
+                    else{
+                        UtilFun.showShortToast(this, "Enter Country Name")
+                    }
+                } else {
+                    UtilFun.showShortToast(this, "Check Internet Connectivity")
                 }
-                else{
-                    UtilFun.showShortToast(this, "Enter Country Name")
-                }
-            } else {
-                UtilFun.showShortToast(this, "Check Internet Connectivity")
+
             }
 
-        }
+            activityHomeScreenBinding.submit.setOnClickListener {
 
-        activityHomeScreenBinding.submit.setOnClickListener {
+                greScore = activityHomeScreenBinding.greScore.text.toString()
+                toeflScore = activityHomeScreenBinding.toeflScore.text.toString()
+                sop = activityHomeScreenBinding.sop.text.toString()
+                lor = activityHomeScreenBinding.lor.text.toString()
+                cgpa = activityHomeScreenBinding.cgpa.text.toString()
+                research = activityHomeScreenBinding.research.text.toString()
 
-            greScore = activityHomeScreenBinding.greScore.text.toString()
-            toeflScore = activityHomeScreenBinding.toeflScore.text.toString()
-            sop = activityHomeScreenBinding.sop.text.toString()
-            lor = activityHomeScreenBinding.lor.text.toString()
-            cgpa = activityHomeScreenBinding.cgpa.text.toString()
-            research = activityHomeScreenBinding.research.text.toString()
+                val intent = Intent(this, PredictionScreen::class.java)
+                startActivity(intent)
 
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
 
